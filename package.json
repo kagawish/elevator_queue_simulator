@@ -1,0 +1,22 @@
+{
+  "name": "elevator_simulation",
+  "version": "1.0.0",
+  "description": "Elevator Simulation Project for the Simulation Course.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "simulation",
+    "queue",
+    "elevator",
+    "coursework",
+    "electron",
+    "javascript"
+  ],
+  "author": "Karim Gawish",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^1.4.13"
+  }
+}
