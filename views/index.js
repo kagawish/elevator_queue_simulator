@@ -31,7 +31,7 @@ var myMaterialC = new Material('MyMaterialC', 50, 'probabilistic', [2, 3], [0.33
 
 var myQueue = new Queue('MyQueue');
 
-myElevatorQueuingSystem._total_time = 200;
+myElevatorQueuingSystem._end_time = 200;
 
 myElevatorQueuingSystem.assign_elevator(myElevator);
 
@@ -43,8 +43,6 @@ myElevatorQueuingSystem.link_queue(myQueue);
 
 myElevator.link_system(myElevatorQueuingSystem);
 
-console.log(myElevatorQueuingSystem);
-
-myElevatorQueuingSystem.advance_timeline(1);
+myElevatorQueuingSystem.advance_timeline(20);
 
 

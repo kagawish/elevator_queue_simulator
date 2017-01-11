@@ -24,9 +24,9 @@ class QueuingSystem {
 
 	assign_material(material) {
 		this._materials.push(material);
-		this._materials_delivered[material.name] = 0;
-		this._materials_postponed[material.name] = 0;
-		this._materials_average_wait_time[material.name] = 0;
+		this._materials_delivered[material._name] = 0;
+		this._materials_postponed[material._name] = 0;
+		this._materials_average_wait_time[material._name] = 0;
 	}
 
 	link_queue(queue) {
@@ -34,18 +34,19 @@ class QueuingSystem {
 	}
 
 	deliver_material(material) {
-		this._materials_delivered[material.name]++;
+		console.log(material);
+		this._materials_delivered[material._name]++;
 	}
 
 	postpone_material(material) {
-		this._materials_postponed[material.name]++;
+		this._materials_postponed[material._name]++;
 		this._total_wait_time++;
 	}
 
 	calculate_stats() {
-		for(let i = 0; i < this._materials; i++) {
-			this._materials_average_wait_time[this_materials[i].name] = parseFloat(this._materials_postponed[this._materials[i].name]) / parseFloat(this._total_wait_time);
-			this._materials_delivered_per_hour[this_materials[i].name] = (parseFloat(this._materials_delivered[this._materials[i].name]) / parseFloat(this.current_time)) * 60;
+		for(let i = 0; i < this._materials.length; i++) {
+			this._materials_average_wait_time[this._materials[i]._name] = parseFloat(this._materials_postponed[this._materials[i]._name]) / parseFloat(this._total_wait_time);
+			this._materials_delivered_per_hour[this._materials[i]._name] = (parseFloat(this._materials_delivered[this._materials[i]._name]) / parseFloat(this.current_time)) * 60;
 		}
 	}
 	
@@ -53,7 +54,6 @@ class QueuingSystem {
 		for(let i = 0; i < n; i++) {
 			if (this._current_time === this._end_time) {
 				alert('Time ended.');
-				console.log(this);
 				return;
 			}
 			this._materials.forEach((item) => {item.generate_material(this._queue)});
@@ -63,8 +63,9 @@ class QueuingSystem {
 			this._current_time++;
 
 			this.calculate_stats();
+
+			console.log(this);
 		}
-		console.log(this);
 	}
 
 	toString() {
@@ -72,15 +73,11 @@ class QueuingSystem {
 		console.log('/----------------/');
 		console.log(this._name);
 		console.log(this._description);
-		console.log('/----------------/');
 		console.log(this._current_time);
 		console.log(this._end_time);
-		console.log('/----------------/');
-		console.log('Elevator: ' + this._elevator);
-		console.log('Materials: ' + this._materials);
-		console.log('Queue: ' + this._queue);
-		console.log('/----------------/');
-		console.log('Stats: ');
+		console.log(this._elevator.toString());
+		console.log(this._materials.toString());
+		console.log(this._queue.toString());
 		console.log(this.materials_average_wait_time);
 		console.log(this.materials_delivered_per_hour);
 		console.log('/----------------/');

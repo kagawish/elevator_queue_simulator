@@ -18,7 +18,6 @@ class Elevator {
 			var not_suitable_elements = [];
 			while(!queue.is_empty() && !this.is_full()) {
 				let current_material = queue.dequeue();
-				console.log(current_material);
 				if (!this.load_material(current_material)){
 					not_suitable_elements.push(current_material);
 				}
@@ -40,13 +39,14 @@ class Elevator {
 	}
 
 	move() {
-		switch(this._current_position) {
-			case 'down' && this.is_full():
-				this._current_position = 'up';
-			case 'up' && this.is_full():
-				this._current_position = 'up1';
-			case 'up1':
-				this._current_position = 'down';
+		if(this._current_position === 'down' && this.is_full()) {
+			this._current_position = 'up';
+		}
+		else if(this._current_position ==='up' && this.is_full()) {
+			this._current_position = 'up1';
+		}
+		else if (this._current_position === 'up1'){
+			this._current_position = 'down';
 		}
 	}
 
@@ -54,7 +54,9 @@ class Elevator {
 		if (this._current_position === 'up' && this.is_full()) {
 			do{
 				let current_material_delivered = this._current_materials.pop();
-				this._system.deliver_material(current_material_delivered);
+				if (current_material_delivered !== undefined) {
+					this._system.deliver_material(current_material_delivered);
+				}
 			}while(this._current_materials.length > 0)
 		}
 	}
