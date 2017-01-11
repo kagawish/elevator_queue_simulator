@@ -17,6 +17,7 @@
   "author": "Karim Gawish",
   "license": "ISC",
   "dependencies": {
-    "electron": "^1.4.13"
+    "electron": "^1.4.13",
+    "jStat": "^1.5.3"
   }
 }

@@ -56,7 +56,7 @@ class QueuingSystem {
 				console.log(this);
 				return;
 			}
-			this._materials.forEach((item) => {item.generateMaterial(this._queue)});
+			this._materials.forEach((item) => {item.generate_material(this._queue)});
 			this._elevator.load_max_possible_weight(this._queue);
 			this._elevator.move();
 			this._elevator.unload();
