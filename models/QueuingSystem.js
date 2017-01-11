@@ -47,7 +47,7 @@ class QueuingSystem {
 	
 	advance_timeline(n) {
 		if (this._current_time === this._total_time) {
-			this.finish();
+			console.log(this);
 			return;
 		}
 		for(let i = 0; i < n; i++) {
