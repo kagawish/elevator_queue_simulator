@@ -46,13 +46,9 @@ class QueuingSystem {
 	}
 	
 	advance_timeline(n) {
-		if (this._current_time === this._total_time) {
-			console.log(this);
-			return;
-		}
 		for(let i = 0; i < n; i++) {
 			if (this._current_time === this._total_time) {
-				alert('Timeline is full.');
+				alert('Time ended.');
 				console.log(this);
 				return;
 			}
