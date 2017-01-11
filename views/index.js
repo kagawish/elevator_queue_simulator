@@ -16,4 +16,13 @@ myElevatorQueuingSystem.assign_material(myMaterialA);
 myElevatorQueuingSystem.assign_material(myMaterialB);
 myElevatorQueuingSystem.assign_material(myMaterialC);
 
-myElevatorQueuingSystem.assign_queue(myQueue);
+myElevatorQueuingSystem.link_queue(myQueue);
+
+myElevator.link_system(myElevatorQueuingSystem);
+
+console.log(myElevatorQueuingSystem);
+
+myElevatorQueuingSystem.advance_timeline(1);
+
+myElevatorQueuingSystem.advance_timeline(10);
+

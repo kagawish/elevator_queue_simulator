@@ -15,4 +15,7 @@ class Material {
 			this._probs = randomnessvars[1];
 		}
 	}
+
+	generateMaterial(queue) {
+	}
 }

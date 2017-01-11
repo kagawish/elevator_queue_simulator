@@ -7,6 +7,11 @@ class QueuingSystem {
 		this._elevator = null;
 		this._queue = null;
 		this._materials = [];
+		this._materials_delivered = [];
+		this._materials_delivered_per_hour = [];
+		this._materials_postponed = [];
+		this._materials_averge_wait_time = [];
+		this._total_wait_time = 0;
 	}
 
 	assign_elevator(elevator) {
@@ -15,29 +20,29 @@ class QueuingSystem {
 
 	assign_material(material) {
 		this._materials.push(material);
+		this._materials_delivered[material.name] = 0;
+		this._materials_postponed[material.name] = 0;
+		this._materials_average_wait_time[material.name] = 0;
 	}
 
-	assign_queue(queue) {
+	link_queue(queue) {
 		this._queue = queue;
 	}
 
-	populate_queue() {
-		for(let i = 0; i < this._materials.length; i++) {
-		}
+	deliver_material(material) {
+		this._materials_delivered[material.name]++;
 	}
 
-	add_max_possible_weight_to_elevator() {
-		var not_suitable_elements = [];
-		while(this._queue.isNotEmpty() && this._elevator.isNotFull()) {
-			let current_weight = this._queue.dequeue();
-			if (!this._elevator.add_weight(current_weight)){
-				not_suitable_elements.push(current_weight);
-			}
+	postpone_material(material) {
+		this._materials_postponed[material.name]++;
+		this._total_wait_time++;
+	}
 
+	calculate_stats() {
+		for(let i = 0; i < this_.materials; i++) {
+			this._materials_average_wait_time[this_materials[i].name] = parseFloat(this._materials_postponed[this._materials[i].name]) / parseFloat(this._total_wait_time);
+			this._materials_delivered_per_hour[this_materials[i].name] = (parseFloat(this._materials_delivered[this._materials[i].name]) / parseFloat(this.current_time)) * 60;
 		}
-
-		if (not_suitable_elements.length > 0)
-			this._queue.prepend(not_suitable_elements);
 	}
 	
 	advance_timeline(n) {
@@ -46,17 +51,40 @@ class QueuingSystem {
 			return;
 		}
 		for(let i = 0; i < n; i++) {
-			populate_queue();
-			add_max_possible_weight_to_elevator();
-			this._current_time++;
 			if (this._current_time === this._total_time) {
-				this.finish();
+				alert('Timeline is full.');
+				console.log(this);
 				return;
 			}
+			this._materials.forEach((item) => {item.generateMaterial(this._queue)});
+			this._elevator.load_max_possible_weight(this._queue);
+			this._elevator.move();
+			this._elevator.unload();
+			this._current_time++;
+
+			this.calculate_stats();
 		}
+		console.log(this);
 	}
 
-	finish() {
-		alert('Timeline is full.');
+	toString() {
+		console.log('/----------------/');
+		console.log('/----------------/');
+		console.log(this._name);
+		console.log(this._description);
+		console.log('/----------------/');
+		console.log(this._current_time);
+		console.log(this._total_time);
+		console.log('/----------------/');
+		console.log('Elevator: ' + this._elevator);
+		console.log('Materials: ' + this._materials);
+		console.log('Queue: ' + this._queue);
+		console.log('/----------------/');
+		console.log('Stats: ');
+		console.log(this.materials_average_wait_time);
+		console.log(this.materials_delivered_per_hour);
+		console.log('/----------------/');
+		console.log('/----------------/');
+		console.log();
 	}
 }

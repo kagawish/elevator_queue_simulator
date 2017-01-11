@@ -20,7 +20,7 @@ class Queue {
 		this._queue.unshift(element);
 	}
 
-	isNotEmpty() {
+	is_empty() {
 		return this._size === 0;
 	}
 }
