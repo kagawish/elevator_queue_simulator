@@ -4,7 +4,8 @@
   "description": "Elevator Simulation Project for the Simulation Course.",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
   },
   "keywords": [
     "simulation",
@@ -12,7 +13,8 @@
     "elevator",
     "coursework",
     "electron",
-    "javascript"
+    "javascript",
+    "reactjs"
   ],
   "author": "Karim Gawish",
   "license": "ISC",
@@ -23,5 +25,10 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-tap-event-plugin": "^2.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-plugin-transform-react-jsx": "^6.8.0",
+    "babel-preset-react": "^6.16.0"
   }
 }
