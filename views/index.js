@@ -1,14 +1,14 @@
-const myElevatorQueuingSystem = new QueuingSystem('MyElevatorQueueSystem');
+var myElevatorQueuingSystem = new QueuingSystem('MyElevatorQueueSystem');
 
-const myElevator = new Elevator('MyElevator', 400);
+var myElevator = new Elevator('MyElevator', 400);
 
-const myMaterialA = new Material('MyMaterialA', 200, 'uniform', 5, 2);
-const myMaterialB = new Material('MyMaterialB', 100, 'constant', 6);
-const myMaterialC = new Material('MyMaterialC', 50, 'probabilistic', [2, 3], [0.33, 0.67]);
+var myMaterialA = new Material('MyMaterialA', 200, 'uniform', 5, 2);
+var myMaterialB = new Material('MyMaterialB', 100, 'constant', 6);
+var myMaterialC = new Material('MyMaterialC', 50, 'probabilistic', [2, 3], [0.33, 0.67]);
 
-const myQueue = new Queue('MyQueue');
+var myQueue = new Queue('MyQueue');
 
-myElevatorQueuingSystem.total_time(200);
+myElevatorQueuingSystem._total_time = 200;
 
 myElevatorQueuingSystem.assign_elevator(myElevator);
 
@@ -23,6 +23,4 @@ myElevator.link_system(myElevatorQueuingSystem);
 console.log(myElevatorQueuingSystem);
 
 myElevatorQueuingSystem.advance_timeline(1);
-
-myElevatorQueuingSystem.advance_timeline(10);
 

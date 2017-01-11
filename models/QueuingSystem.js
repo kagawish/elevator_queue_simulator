@@ -10,7 +10,7 @@ class QueuingSystem {
 		this._materials_delivered = [];
 		this._materials_delivered_per_hour = [];
 		this._materials_postponed = [];
-		this._materials_averge_wait_time = [];
+		this._materials_average_wait_time = [];
 		this._total_wait_time = 0;
 	}
 
@@ -39,7 +39,7 @@ class QueuingSystem {
 	}
 
 	calculate_stats() {
-		for(let i = 0; i < this_.materials; i++) {
+		for(let i = 0; i < this._materials; i++) {
 			this._materials_average_wait_time[this_materials[i].name] = parseFloat(this._materials_postponed[this._materials[i].name]) / parseFloat(this._total_wait_time);
 			this._materials_delivered_per_hour[this_materials[i].name] = (parseFloat(this._materials_delivered[this._materials[i].name]) / parseFloat(this.current_time)) * 60;
 		}

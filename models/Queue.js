@@ -17,7 +17,7 @@ class Queue {
 	}
 	
 	prepend (elements) {
-		this._queue.unshift(element);
+		this._queue.unshift(elements);
 	}
 
 	is_empty() {
