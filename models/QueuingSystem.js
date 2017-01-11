@@ -3,7 +3,7 @@ class QueuingSystem {
 		this._name = name;
 		this._description = "This is a queuing system."
 		this._current_time = 0;
-		this._total_time = -1;
+		this._end_time = -1;
 		this._elevator = null;
 		this._queue = null;
 		this._materials = [];
@@ -12,6 +12,10 @@ class QueuingSystem {
 		this._materials_postponed = [];
 		this._materials_average_wait_time = [];
 		this._total_wait_time = 0;
+	}
+
+	assign_end_time(time) {
+		this._end_time = time;
 	}
 
 	assign_elevator(elevator) {
@@ -47,7 +51,7 @@ class QueuingSystem {
 	
 	advance_timeline(n) {
 		for(let i = 0; i < n; i++) {
-			if (this._current_time === this._total_time) {
+			if (this._current_time === this._end_time) {
 				alert('Time ended.');
 				console.log(this);
 				return;
@@ -70,7 +74,7 @@ class QueuingSystem {
 		console.log(this._description);
 		console.log('/----------------/');
 		console.log(this._current_time);
-		console.log(this._total_time);
+		console.log(this._end_time);
 		console.log('/----------------/');
 		console.log('Elevator: ' + this._elevator);
 		console.log('Materials: ' + this._materials);
