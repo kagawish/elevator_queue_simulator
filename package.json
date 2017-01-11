@@ -18,6 +18,10 @@
   "license": "ISC",
   "dependencies": {
     "electron": "^1.4.13",
-    "jStat": "^1.5.3"
+    "jStat": "^1.5.3",
+    "material-ui": "^0.16.6",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-tap-event-plugin": "^2.0.1"
   }
 }

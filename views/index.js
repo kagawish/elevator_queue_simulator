@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 var myElevatorQueuingSystem = new QueuingSystem('MyElevatorQueueSystem');
 
 var myElevator = new Elevator('MyElevator', 400);
@@ -23,4 +26,5 @@ myElevator.link_system(myElevatorQueuingSystem);
 console.log(myElevatorQueuingSystem);
 
 myElevatorQueuingSystem.advance_timeline(1);
+
 
