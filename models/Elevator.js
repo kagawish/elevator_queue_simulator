@@ -42,22 +42,22 @@ class Elevator {
 		if(this._current_position === 'down' && this.is_full()) {
 			this._current_position = 'up';
 		}
-		else if(this._current_position ==='up' && this.is_full()) {
+		else if(this._current_position === 'up' && this.is_full()) {
 			this._current_position = 'up1';
 		}
-		else if (this._current_position === 'up1'){
+		else if (this._current_position === 'up1' && !this.is_full()){
 			this._current_position = 'down';
 		}
 	}
 
 	unload() {
-		if (this._current_position === 'up' && this.is_full()) {
+		if (this._current_position === 'up1' && this.is_full()) {
 			do{
 				let current_material_delivered = this._current_materials.pop();
 				if (current_material_delivered !== undefined) {
 					this._system.deliver_material(current_material_delivered);
 				}
-			}while(this._current_materials.length > 0)
+			}while(this._current_materials.length > 0);
 		}
 	}
 

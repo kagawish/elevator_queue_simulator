@@ -34,8 +34,8 @@ class QueuingSystem {
 	}
 
 	deliver_material(material) {
-		console.log(material);
 		this._materials_delivered[material._name]++;
+		this._elevator._current_weight -= material._weight;
 	}
 
 	postpone_material(material) {
