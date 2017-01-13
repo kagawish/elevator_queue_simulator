@@ -4,6 +4,11 @@
 // import injectTapEventPlugin from 'react-tap-event-plugin';
 // import MyAwesomeReactComponent from './MyAwesomeReactComponent';
 
+// import QueuingSystem from '../models/QueuingSystem';
+// import Elevator from '../models/Elevator';
+// import Material from '../models/Material';
+// import Queue from '../models/Queue';
+
 // injectTapEventPlugin();
 
 // const App = () => (
