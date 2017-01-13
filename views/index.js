@@ -42,7 +42,7 @@ myElevator.link_system(myElevatorQueuingSystem);
 const App = () => (
   <MuiThemeProvider>
   	<div>
-	    <MyHeader />
+	    <MyHeader title={myElevatorQueuingSystem.name}/>
 	    <MyComponentsGrid />
 	    <MyStatesTable />
 	    <MyTimeline />
