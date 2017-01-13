@@ -7,6 +7,10 @@ var sourcemaps = require('gulp-sourcemaps');
 var util = require('gulp-util');
 
 gulp.task('default', function() {
+    gulp.watch();
+});
+
+gulp.task('javascript', function() {
     var b = browserify({
         entries: './views/index.js',
         debug: true,
@@ -30,6 +34,4 @@ gulp.task('default', function() {
         .pipe(gulp.dest('./views/js/'));
 });
 
-gulp.task('watch', function () {
-	
-});
+gulp.watch(["./views/**/*.js", "!./views/js/**/*.js"], ['javascript']);
