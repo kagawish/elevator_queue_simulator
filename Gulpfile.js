@@ -12,10 +12,8 @@ gulp.task('default', function() {
         debug: true,
         transform: [babelify.configure({
             presets: [
-                // "transform-react-jsx",
                 "babel-preset-es2015",
-                "babel-preset-es2016",
-                "babel-preset-es2017"
+                "babel-preset-react"
             ].map(require.resolve)
         })]
     });

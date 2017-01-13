@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import injectTapEventPlugi from 'react-tap-event-plugin';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import MyAwesomeReactComponent from './components/MyAwesomeReactComponent';
 
 import QueuingSystem from '../models/QueuingSystem';
@@ -11,17 +11,17 @@ import Queue from '../models/Queue';
 
 import $ from 'jquery';
 
-// injectTapEventPlugin();
+injectTapEventPlugin();
 
-// const App = () => (
-//   <h1>
-//   	Hello World!
-//   </h1>
-// );
+const App = () => (
+  <MuiThemeProvider>
+    <MyAwesomeReactComponent />
+  </MuiThemeProvider>
+);
 
-// ReactDOM.render(
-//   <App />,document.getElementById('app')
-// );
+ReactDOM.render(
+  <App />,document.getElementById('app')
+);
 
 var myElevatorQueuingSystem = new QueuingSystem('MyElevatorQueueSystem');
 
