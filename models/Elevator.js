@@ -65,3 +65,5 @@ class Elevator {
 		return this._current_weight === this._max_weight;
 	}
 }
+
+module.exports = Elevator;

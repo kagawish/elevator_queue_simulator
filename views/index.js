@@ -4,10 +4,12 @@
 // import injectTapEventPlugin from 'react-tap-event-plugin';
 // import MyAwesomeReactComponent from './MyAwesomeReactComponent';
 
-// import QueuingSystem from '../models/QueuingSystem';
-// import Elevator from '../models/Elevator';
-// import Material from '../models/Material';
-// import Queue from '../models/Queue';
+var QueuingSystem = require('../models/QueuingSystem');
+var Elevator = require('../models/Elevator');
+var Material = require('../models/Material');
+var Queue = require('../models/Queue');
+
+var $ = require('jquery');
 
 // injectTapEventPlugin();
 
@@ -25,7 +27,6 @@
 //   document.getElementById('app')
 // );
 
-
 var myElevatorQueuingSystem = new QueuingSystem('MyElevatorQueueSystem');
 
 var myElevator = new Elevator('MyElevator', 400);
@@ -36,7 +37,7 @@ var myMaterialC = new Material('MyMaterialC', 50, 'probabilistic', [2, 3], [0.33
 
 var myQueue = new Queue('MyQueue');
 
-myElevatorQueuingSystem._end_time = 12000;
+myElevatorQueuingSystem._end_time = 10;
 
 myElevatorQueuingSystem.assign_elevator(myElevator);
 
@@ -48,6 +49,9 @@ myElevatorQueuingSystem.link_queue(myQueue);
 
 myElevator.link_system(myElevatorQueuingSystem);
 
-myElevatorQueuingSystem.advance_timeline(200 * 60);
+$('#app').html('<p>' + myElevatorQueuingSystem._name + '</p>');
+$('#app').html('<p>' + myElevatorQueuingSystem._description + '</p>');
+
+myElevatorQueuingSystem.advance_timeline(10);
 
 

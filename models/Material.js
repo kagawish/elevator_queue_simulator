@@ -35,3 +35,5 @@ class Material {
         queue.enqueue(this);
     }
 }
+
+module.exports = Material;
