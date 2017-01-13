@@ -3,3 +3,4 @@ node_modules/*
 *.swp
 *.sublime-project
 *.sublime-workspace
+views/js/*

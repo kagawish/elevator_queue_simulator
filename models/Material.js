@@ -1,3 +1,6 @@
+import {jStat} from 'jStat';
+import _ from 'lodash';
+
 class Material {
     constructor(name, weight, randomness = 'constant', ...randomnessvars) {
         this._name = name;
@@ -36,4 +39,4 @@ class Material {
     }
 }
 
-module.exports = Material;
+export default Material;

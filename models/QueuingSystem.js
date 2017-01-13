@@ -63,29 +63,8 @@ class QueuingSystem {
 			this._current_time++;
 
 			this.calculate_stats();
-
-			this.print_to_page();
 		}
-	}
-
-	print_to_page() {
-		// $('#app')
-			// .html('<p>' + this._name + '</p>');
-		// console.log('/----------------/');
-		// console.log('/----------------/');
-		// console.log(this._name);
-		// console.log(this._description);
-		// console.log(this._current_time);
-		// console.log(this._end_time);
-		// console.log(this._elevator.toString());
-		// console.log(this._materials.toString());
-		// console.log(this._queue.toString());
-		// console.log(this.materials_average_wait_time);
-		// console.log(this.materials_delivered_per_hour);
-		// console.log('/----------------/');
-		// console.log('/----------------/');
-		// console.log();
 	}
 }
 
-module.exports = QueuingSystem;
+export default QueuingSystem;

@@ -1,30 +1,26 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import injectTapEventPlugin from 'react-tap-event-plugin';
-// import MyAwesomeReactComponent from './MyAwesomeReactComponent';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import injectTapEventPlugi from 'react-tap-event-plugin';
+import MyAwesomeReactComponent from './components/MyAwesomeReactComponent';
 
-var QueuingSystem = require('../models/QueuingSystem');
-var Elevator = require('../models/Elevator');
-var Material = require('../models/Material');
-var Queue = require('../models/Queue');
+import QueuingSystem from '../models/QueuingSystem';
+import Elevator from '../models/Elevator';
+import Material from '../models/Material';
+import Queue from '../models/Queue';
 
-var $ = require('jquery');
+import $ from 'jquery';
 
 // injectTapEventPlugin();
 
 // const App = () => (
-//   <MuiThemeProvider>
-//     <MyAwesomeReactComponent />
-//   </MuiThemeProvider>
 //   <h1>
 //   	Hello World!
 //   </h1>
 // );
 
 // ReactDOM.render(
-//   <App />,
-//   document.getElementById('app')
+//   <App />,document.getElementById('app')
 // );
 
 var myElevatorQueuingSystem = new QueuingSystem('MyElevatorQueueSystem');
@@ -48,9 +44,6 @@ myElevatorQueuingSystem.assign_material(myMaterialC);
 myElevatorQueuingSystem.link_queue(myQueue);
 
 myElevator.link_system(myElevatorQueuingSystem);
-
-$('#app').html('<p>' + myElevatorQueuingSystem._name + '</p>');
-$('#app').html('<p>' + myElevatorQueuingSystem._description + '</p>');
 
 myElevatorQueuingSystem.advance_timeline(10);
 
