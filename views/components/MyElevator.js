@@ -14,7 +14,11 @@ class MyElevator extends React.Component {
   render() {
     return (
       <div>
-        <Subheader>System Components</Subheader>
+        <Subheader>Elevator {this.props.elevator._name}</Subheader>
+        <h5>{this.props.elevator._description}</h5>
+        <h5>{this.props.elevator._max_weight}</h5>
+        <h5>{this.props.elevator._current_weight}</h5>
+        <h5>{this.props.elevator._current_position}</h5>
       </div>
     );
   }

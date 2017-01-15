@@ -13,7 +13,12 @@ class MyMaterials extends React.Component {
   render() {
     return (
       <div>
-        <Subheader>System Components</Subheader>
+        <Subheader>Material Types</Subheader>
+        <ul>
+          {this.props.materials.map((material) => {
+              <li> {material._name} </li>
+          })}
+        </ul>
       </div>
     );
   }

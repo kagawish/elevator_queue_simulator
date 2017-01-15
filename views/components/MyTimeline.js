@@ -15,18 +15,15 @@ class MyTimeline extends React.Component {
 		return (
 		  <div>
 		    <Subheader>System Components</Subheader>
+		    <Slider step={1/this.props.end_time} value={this.props.current_time/this.props.end_time} />
 		  </div>
 		);
 	}
 }
 
-MyTimeline.defaultProps = {
-	end_time: '-1'
-}
-
 MyTimeline.proptypes = {
 	current_time: React.PropTypes.number.isRequired,
-	end_time: React.PropTypes.number
+	end_time: React.PropTypes.number.isRequired
 }
 
 export default MyTimeline;

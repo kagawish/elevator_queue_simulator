@@ -10,7 +10,7 @@ class MyAdvanceButton extends React.Component {
     return (
       <div>
         <RaisedButton 
-          onClick={this.props.advance_method(1)} 
+          onClick={() => this.props.advance_method(1)} 
           label="Advance Timeline" 
           primary={true} 
         />

@@ -14,7 +14,15 @@ class MyQueue extends React.Component {
   render() {
     return (
       <div>
-        <Subheader>System Components</Subheader>
+        <Subheader>Queue</Subheader>
+        <ul>
+          {
+            this.props.queue._queue.map((item) => {
+              <li>item</li>
+            })
+          }
+        </ul>
+        <h5>{this.props.queue._size}</h5>
       </div>
     );
   }

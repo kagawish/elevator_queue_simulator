@@ -32,9 +32,6 @@ myElevatorQueuingSystem.link_queue(myQueue);
 myElevator.link_system(myElevatorQueuingSystem);
 
 ReactDOM.render(
-  <App system={myElevatorQueuingSystem}/>,document.getElementById('app')
+  <App system={myElevatorQueuingSystem}/>,
+  document.getElementById('app')
 );
-
-// myElevatorQueuingSystem.advance_timeline(10);
-
-

@@ -62,7 +62,6 @@ class QueuingSystem {
 	}
 	
 	advance_timeline(n) {
-		console.log('Advancing the system by ' + n);
 		for(let i = 0; i < n; i++) {
 			if (this._current_time === this._end_time) {
 				alert('Time ended.');
@@ -78,6 +77,7 @@ class QueuingSystem {
 
 			this.capture_system_state();
 		}
+		return this;
 	}
 }
 
