@@ -1,11 +1,12 @@
 import React from 'react';
 import {GridList, GridTile} from 'material-ui/GridList';
 import Subheader from 'material-ui/Subheader';
+import Queue from '../../models/Queue';
 
 /**
  * A simple example of a scrollable `GridList`.
  */
-class MyComponentsGrid extends React.Component {
+class MyQueue extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -19,4 +20,8 @@ class MyComponentsGrid extends React.Component {
   }
 }
 
-export default MyComponentsGrid;
+MyQueue.proptypes = {
+  queue: React.PropTypes.instanceOf(Queue).isRequired
+}
+
+export default MyQueue;

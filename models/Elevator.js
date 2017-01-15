@@ -64,6 +64,10 @@ class Elevator {
 	is_full() {
 		return this._current_weight === this._max_weight;
 	}
+
+	capture_state() {
+		return this;
+	}
 }
 
 export default Elevator;

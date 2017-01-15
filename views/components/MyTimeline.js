@@ -20,4 +20,13 @@ class MyTimeline extends React.Component {
 	}
 }
 
+MyTimeline.defaultProps = {
+	end_time: '-1'
+}
+
+MyTimeline.proptypes = {
+	current_time: React.PropTypes.number.isRequired,
+	end_time: React.PropTypes.number
+}
+
 export default MyTimeline;

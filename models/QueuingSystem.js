@@ -12,6 +12,7 @@ class QueuingSystem {
 		this._materials_postponed = [];
 		this._materials_average_wait_time = [];
 		this._total_wait_time = 0;
+		this._states = [];
 	}
 
 	assign_end_time(time) {
@@ -49,8 +50,19 @@ class QueuingSystem {
 			this._materials_delivered_per_hour[this._materials[i]._name] = (parseFloat(this._materials_delivered[this._materials[i]._name]) / parseFloat(this.current_time)) * 60;
 		}
 	}
+
+	capture_system_state() {
+		var current_state = {
+			elevator: this._elevator.capture_state(),
+			queue: this._queue.capture_state(),
+			materials: this._materials
+		};
+
+		this._states[this._current_time] = current_state;
+	}
 	
 	advance_timeline(n) {
+		console.log('Advancing the system by ' + n);
 		for(let i = 0; i < n; i++) {
 			if (this._current_time === this._end_time) {
 				alert('Time ended.');
@@ -63,6 +75,8 @@ class QueuingSystem {
 			this._current_time++;
 
 			this.calculate_stats();
+
+			this.capture_system_state();
 		}
 	}
 }

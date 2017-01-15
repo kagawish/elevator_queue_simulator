@@ -1,12 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-
-import MyHeader from './components/MyHeader';
-import MyStatesTable from './components/MyStatesTable';
-import MyTimeline from './components/MyTimeline';
-import MyComponentsGrid from './components/MyComponentsGrid';
+import App from './components/App';
 
 import QueuingSystem from '../models/QueuingSystem';
 import Elevator from '../models/Elevator';
@@ -14,8 +8,6 @@ import Material from '../models/Material';
 import Queue from '../models/Queue';
 
 import $ from 'jquery';
-
-injectTapEventPlugin();
 
 var myElevatorQueuingSystem = new QueuingSystem('MyElevatorQueueSystem');
 
@@ -39,21 +31,10 @@ myElevatorQueuingSystem.link_queue(myQueue);
 
 myElevator.link_system(myElevatorQueuingSystem);
 
-const App = () => (
-  <MuiThemeProvider>
-  	<div>
-	    <MyHeader title={myElevatorQueuingSystem.name}/>
-	    <MyComponentsGrid />
-	    <MyStatesTable />
-	    <MyTimeline />
-    </div>
-  </MuiThemeProvider>
-);
-
 ReactDOM.render(
-  <App />,document.getElementById('app')
+  <App system={myElevatorQueuingSystem}/>,document.getElementById('app')
 );
 
-myElevatorQueuingSystem.advance_timeline(10);
+// myElevatorQueuingSystem.advance_timeline(10);
 
 

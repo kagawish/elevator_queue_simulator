@@ -12,9 +12,19 @@ class MyHeader extends React.Component {
 
 	render() {
 		return (
-		  <AppBar title="Title" />
+		  <AppBar 
+		  	title={this.props.title} 
+		  />
 		);
 	}
+}
+
+MyHeader.defaultProps = {
+	title: 'Elevator Simulation'
+}
+
+MyHeader.proptypes = {
+	title: React.PropTypes.string
 }
 
 export default MyHeader;

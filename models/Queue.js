@@ -23,6 +23,10 @@ class Queue {
 	is_empty() {
 		return this._size === 0;
 	}
+
+	capture_state() {
+		return this;
+	}
 }
 
 export default Queue;

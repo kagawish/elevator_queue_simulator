@@ -8,43 +8,40 @@ class MyStatesTable extends React.Component {
   }
 
   render() {
+    var table_rows = this.props.states.map((state, index) => {
+        <TableRow>
+          <TableRowColumn>index</TableRowColumn>
+          <TableRowColumn>state.elevator</TableRowColumn>
+          <TableRowColumn>state.queue</TableRowColumn>
+          <TableRowColumn>state.materials</TableRowColumn>
+        </TableRow>
+    });
+
+    console.log(this.props.states);
+
     return (
       <div>
         <Subheader>States Table</Subheader>
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHeaderColumn>ID</TableHeaderColumn>
-              <TableHeaderColumn>Name</TableHeaderColumn>
-              <TableHeaderColumn>Status</TableHeaderColumn>
+              <TableHeaderColumn>Time</TableHeaderColumn>
+              <TableHeaderColumn>Elevator</TableHeaderColumn>
+              <TableHeaderColumn>Queue</TableHeaderColumn>
+              <TableHeaderColumn>Materials</TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody>
-            <TableRow>
-              <TableRowColumn>1</TableRowColumn>
-              <TableRowColumn>John Smith</TableRowColumn>
-              <TableRowColumn>Employed</TableRowColumn>
-            </TableRow>
-            <TableRow>
-              <TableRowColumn>2</TableRowColumn>
-              <TableRowColumn>Randal White</TableRowColumn>
-              <TableRowColumn>Unemployed</TableRowColumn>
-            </TableRow>
-            <TableRow>
-              <TableRowColumn>3</TableRowColumn>
-              <TableRowColumn>Stephanie Sanders</TableRowColumn>
-              <TableRowColumn>Employed</TableRowColumn>
-            </TableRow>
-            <TableRow>
-              <TableRowColumn>4</TableRowColumn>
-              <TableRowColumn>Steve Brown</TableRowColumn>
-              <TableRowColumn>Employed</TableRowColumn>
-            </TableRow>
+            {table_rows}
           </TableBody>
         </Table>
       </div>
     );
   }
+}
+
+MyStatesTable.proptypes = {
+  states: React.PropTypes.array.isRequired
 }
 
 export default MyStatesTable;
