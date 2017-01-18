@@ -1,3 +1,9 @@
+/**
+ * The main application driver file.
+ * This file loops certain amount of times, calculates
+ * overall stats about the system and finally it renders
+ * the App ReactJS component on the interface.
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';

@@ -1,3 +1,6 @@
+/**
+ * The application main entering point required by Electron.
+ */
 const {app, BrowserWindow} = require('electron');
 
 app.on('ready', () => {
