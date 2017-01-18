@@ -18,14 +18,12 @@ var results = [{
 var myElevatorQueuingSystem = null;
 var current_results = [];
 
-for (var i = 10; i <= 100; i*=10) {
+for (var i = 10; i <= 30; i+=10) {
 
 	current_results = [];
 	console.log('Testing for ' + i + ' times.');
 
 	for (var j = 0; j < i; j++) {
-
-		console.log('j === ' + j);
 
 		myElevatorQueuingSystem = new QueuingSystem('MyElevatorQueueSystem');
 
@@ -51,12 +49,8 @@ for (var i = 10; i <= 100; i*=10) {
 
 		var current_result = myElevatorQueuingSystem.advance_timeline(200 * 60);
 
-		console.log(current_result);
-
 		current_results.push(current_result._stats);
 	}
-	console.log(current_results);
-
 	average_all_results (i, current_results);
 
 	console.log(results);

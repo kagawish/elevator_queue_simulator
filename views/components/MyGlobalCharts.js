@@ -8,45 +8,64 @@ class MyGlobalCharts extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.stats);
+		var counts = Object.keys(this.props.stats);
 
-		var keys = Object.keys(this.props.stats._materials_average_wait_time);
-		var values = [];
-		keys.forEach(function (key) {
-			values.push(this.props.stats._materials_average_wait_time[key]);
-		}.bind(this));
+		var charts = this.props.stats.map((stat, index) => {
+			if (index !== 0) {
 
-		var keys2 = Object.keys(this.props.stats._materials_delivered_per_hour);
-		var values2 = [];
-		keys2.forEach(function (key) {
-			values2.push(this.props.stats._materials_delivered_per_hour[key]);
-		}.bind(this));
+				var data = {
+				  labels: [],
+				  datasets: []
+				};
 
-		const data = {
-		  labels: keys,
-		  datasets: [
-		    {
-		      label: 'Average Wait Time',
-		      data: values
+				var keys = Object.keys(stat.overall_average_wait_times);
+
+				var values = [];
+
+				keys.forEach(function (key) {
+					values.push(stat.overall_average_wait_times[key]);
+				}.bind(this));
+
+				data.labels = keys;
+
+				data.datasets.push({
+					label: 'Average Wait Time for ' + index + ' iterations.',
+			      	data: values
+				});
+
+				var data2 = {
+				  labels: [],
+				  datasets: []
+				};
+
+				var keys2 = Object.keys(stat.overall_average_delivered_packages_per_hour);
+
+				var values2 = [];
+
+				keys2.forEach(function (key) {
+					values2.push(stat.overall_average_delivered_packages_per_hour[key]);
+				}.bind(this));
+
+				data2.labels = keys2;
+
+				data2.datasets.push({
+					label: 'Average delivered packages per hour ' + index + ' iterations.',
+			      	data: values2
+				});
+
+		        return (
+		          <div>
+			          <Bar data={data} key={index.toString() + '1'} />
+			          <Bar data={data2} key={index.toString() + '2'} />
+			          <h5> Percentage Of Time the Elevator was Ideal: {stat.overall_percentage_of_elevator_was_ideal}% </h5>
+		          </div>
+		       	);
 		    }
-		  ]
-		};
-
-		const data2 = {
-		  labels: keys2,
-		  datasets: [
-		    {
-		      label: 'Average Delivered Packages Per hour',
-		      data: values2
-		    }
-		  ]
-		};
+	    });
 
 		return (
 			<div>
-				<Bar data={data} />
-				<Bar data={data2} />
-				<h5> Percentage Of Time the Elevator was Ideal: {this.props.stats._percentage_elevator_ideal}% </h5>
+				{charts}
 			</div>
 		);
 	}

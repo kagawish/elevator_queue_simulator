@@ -10,6 +10,7 @@ import MyQueue from './MyQueue';
 import MyMaterials from './MyMaterials';
 import MyAdvanceButton from './MyAdvanceButton';
 import MyCharts from './MyCharts';
+import MyGlobalCharts from './MyGlobalCharts';
 
 import QueuingSystem from '../../models/QueuingSystem';
 
