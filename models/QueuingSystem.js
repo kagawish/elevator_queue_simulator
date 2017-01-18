@@ -12,7 +12,9 @@ class QueuingSystem {
 			_materials_delivered_per_hour: [],
 			_materials_postponed: [],
 			_materials_average_wait_time: [],
-			_total_wait_time: 0
+			_total_wait_time: 0,
+			_total_time_elevator_ideal: 0,
+			_percentage_elevator_ideal: 0
 		}
 		this._states = [];
 	}
@@ -51,6 +53,7 @@ class QueuingSystem {
 			if (this._current_time !== 0) {
 				this._stats._materials_average_wait_time[this._materials[i]._name] = parseFloat(this._stats._materials_postponed[this._materials[i]._name]) / parseFloat(this._current_time);
 				this._stats._materials_delivered_per_hour[this._materials[i]._name] = (parseFloat(this._stats._materials_delivered[this._materials[i]._name]) / parseFloat(this._current_time)) * 60;
+				this._stats._percentage_elevator_ideal = (parseFloat(this._stats._total_time_elevator_ideal) / parseFloat(this._current_time)) * 100;
 			}
 		}
 	}

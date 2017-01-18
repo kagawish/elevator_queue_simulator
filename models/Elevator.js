@@ -22,8 +22,12 @@ class Elevator {
 					not_suitable_elements.push(current_material);
 				}
 			}
-			if (not_suitable_elements.length > 0)
+			if (not_suitable_elements.length > 0) {
 				queue.prepend(not_suitable_elements);
+			}
+			else {
+				this._system._stats._total_time_elevator_ideal++;
+			}
 		}
 	}
 

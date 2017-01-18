@@ -44,6 +44,7 @@ class MyCharts extends React.Component {
 			<div>
 				<Bar data={data} />
 				<Bar data={data2} />
+				<h5> Percentage Of Time the Elevator was Ideal: {this.props.stats._percentage_elevator_ideal}% </h5>
 			</div>
 		);
 	}

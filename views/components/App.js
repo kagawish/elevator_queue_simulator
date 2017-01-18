@@ -53,13 +53,6 @@ class App extends React.Component {
 				    <MyCharts
 				    	stats={this.state.system._stats}
 				    />
-				    <MyTimeline 
-				    	current_time={this.state.system._current_time}
-				    	end_time={this.state.system._end_time}
-				    />
-				    <MyAdvanceButton 
-				    	advance_method={this.advance_timeline_state}
-				    />
 			    </div>
 			</MuiThemeProvider>
 		);
