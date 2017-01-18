@@ -1,3 +1,8 @@
+/**
+ * The component that was supposed to reperesent 
+ * a slider to be used to advance or rewind the time easily.
+ * It is based on Material UI and ReactJS.
+ */
 import React from 'react';
 import Slider from 'material-ui/Slider';
 import Subheader from 'material-ui/Subheader';

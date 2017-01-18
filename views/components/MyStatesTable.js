@@ -1,3 +1,8 @@
+/**
+ * The table of different states the simulation passed
+ * on, though not styled, it works.
+ * It is based on Material UI and ReactJS.
+ */
 import React from 'react';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import Subheader from 'material-ui/Subheader';

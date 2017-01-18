@@ -1,3 +1,7 @@
+/**
+ * This is the biggest rendered frame for the application, it depends on 
+ * React UI library and includes almost all other UI components.
+ */
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';

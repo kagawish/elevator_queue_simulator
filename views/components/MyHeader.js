@@ -1,3 +1,7 @@
+/**
+ * The Application header Component.
+ * It is based on Material UI and ReactJS.
+ */
 import React from "react";
 import AppBar from "material-ui/AppBar";
 

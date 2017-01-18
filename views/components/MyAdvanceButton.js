@@ -1,3 +1,8 @@
+/**
+ * The button UI component that defines a button to advance the 
+ * timeline by 1.
+ * It is based on Material UI library and ReactJS.
+ */
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 

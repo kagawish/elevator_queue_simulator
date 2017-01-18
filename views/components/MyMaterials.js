@@ -1,3 +1,8 @@
+/**
+ * The component that was supposed to reperesent 
+ * the materials list on the interface.
+ * It is based on Material UI and ReactJS.
+ */
 import React from 'react';
 import {GridList, GridTile} from 'material-ui/GridList';
 import Subheader from 'material-ui/Subheader';
