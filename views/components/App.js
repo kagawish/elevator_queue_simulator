@@ -53,6 +53,9 @@ class App extends React.Component {
 				    <MyCharts
 				    	stats={this.state.system._stats}
 				    />
+				    <MyGlobalCharts
+				    	stats={this.props.overall_stats}
+				    />
 			    </div>
 			</MuiThemeProvider>
 		);
