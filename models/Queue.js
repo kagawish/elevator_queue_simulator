@@ -5,8 +5,6 @@ class Queue {
 	}
 
 	enqueue (element) {
-		console.log('Enqueuing');
-		console.log(element);
 		this._queue.push(element);
 	}
 
@@ -16,8 +14,6 @@ class Queue {
 	}
 	
 	prepend (elements) {
-		console.log('Prepending');
-		console.log(elements);
 		elements.forEach((element) => {
 			this._queue.unshift(element);
 		});

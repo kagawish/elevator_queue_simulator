@@ -7,11 +7,13 @@ class QueuingSystem {
 		this._elevator = null;
 		this._queue = null;
 		this._materials = [];
-		this._materials_delivered = [];
-		this._materials_delivered_per_hour = [];
-		this._materials_postponed = [];
-		this._materials_average_wait_time = [];
-		this._total_wait_time = 0;
+		this._stats = {
+			_materials_delivered: [],
+			_materials_delivered_per_hour: [],
+			_materials_postponed: [],
+			_materials_average_wait_time: [],
+			_total_wait_time: 0
+		}
 		this._states = [];
 	}
 
@@ -25,9 +27,9 @@ class QueuingSystem {
 
 	assign_material(material) {
 		this._materials.push(material);
-		this._materials_delivered[material._name] = 0;
-		this._materials_postponed[material._name] = 0;
-		this._materials_average_wait_time[material._name] = 0;
+		this._stats._materials_delivered[material._name] = 0;
+		this._stats._materials_postponed[material._name] = 0;
+		this._stats._materials_average_wait_time[material._name] = 0;
 	}
 
 	link_queue(queue) {
@@ -35,19 +37,21 @@ class QueuingSystem {
 	}
 
 	deliver_material(material) {
-		this._materials_delivered[material._name]++;
+		this._stats._materials_delivered[material._name]++;
 		this._elevator._current_weight -= material._weight;
 	}
 
 	postpone_material(material) {
-		this._materials_postponed[material._name]++;
+		this._stats._materials_postponed[material._name]++;
 		this._total_wait_time++;
 	}
 
 	calculate_stats() {
 		for(let i = 0; i < this._materials.length; i++) {
-			this._materials_average_wait_time[this._materials[i]._name] = parseFloat(this._materials_postponed[this._materials[i]._name]) / parseFloat(this._total_wait_time);
-			this._materials_delivered_per_hour[this._materials[i]._name] = (parseFloat(this._materials_delivered[this._materials[i]._name]) / parseFloat(this.current_time)) * 60;
+			if (this._current_time !== 0) {
+				this._stats._materials_average_wait_time[this._materials[i]._name] = parseFloat(this._stats._materials_postponed[this._materials[i]._name]) / parseFloat(this._current_time);
+				this._stats._materials_delivered_per_hour[this._materials[i]._name] = (parseFloat(this._stats._materials_delivered[this._materials[i]._name]) / parseFloat(this._current_time)) * 60;
+			}
 		}
 	}
 

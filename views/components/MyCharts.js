@@ -1,5 +1,6 @@
 import React from 'react';
-import {Line} from 'react-chartjs-v2';
+import {Bar} from 'react-chartjs-v2';
+import _ from 'lodash';
 
 class MyCharts extends React.Component {
 	constructor(props) {
@@ -7,35 +8,43 @@ class MyCharts extends React.Component {
 	}
 
 	render() {
-		// const data = {
-		//   labels: this.props.cost_states.x,
-		//   datasets: [
-		//     {
-		//       label: 'Reliability System Cost',
-		//       fill: false,
-		//       lineTension: 0.1,
-		//       backgroundColor: 'rgba(75,192,192,0.4)',
-		//       borderColor: 'rgba(75,192,192,1)',
-		//       borderCapStyle: 'butt',
-		//       borderDash: [],
-		//       borderDashOffset: 0.0,
-		//       borderJoinStyle: 'miter',
-		//       pointBorderColor: 'rgba(75,192,192,1)',
-		//       pointBackgroundColor: '#fff',
-		//       pointBorderWidth: 1,
-		//       pointHoverRadius: 5,
-		//       pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-		//       pointHoverBorderColor: 'rgba(220,220,220,1)',
-		//       pointHoverBorderWidth: 2,
-		//       pointRadius: 1,
-		//       pointHitRadius: 10,
-		//       data: this.props.cost_states.y
-		//     }
-		//   ]
-		// };
+		var keys = Object.keys(this.props.stats._materials_average_wait_time);
+		var values = [];
+		keys.forEach(function (key) {
+			values.push(this.props.stats._materials_average_wait_time[key]);
+		}.bind(this));
+
+		var keys2 = Object.keys(this.props.stats._materials_delivered_per_hour);
+		var values2 = [];
+		keys2.forEach(function (key) {
+			values2.push(this.props.stats._materials_delivered_per_hour[key]);
+		}.bind(this));
+
+		const data = {
+		  labels: keys,
+		  datasets: [
+		    {
+		      label: 'Average Wait Time',
+		      data: values
+		    }
+		  ]
+		};
+
+		const data2 = {
+		  labels: keys2,
+		  datasets: [
+		    {
+		      label: 'Average Delivered Packages Per hour',
+		      data: values2
+		    }
+		  ]
+		};
 
 		return (
-			<Line />
+			<div>
+				<Bar data={data} />
+				<Bar data={data2} />
+			</div>
 		);
 	}
 }

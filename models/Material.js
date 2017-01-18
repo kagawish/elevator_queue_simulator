@@ -43,7 +43,6 @@ class Material {
     generate_material(queue) {
         if (this.has_arrived()) {
             var material_clone = JSON.parse(JSON.stringify(this));
-            console.log(material_clone);
             material_clone._time_until_arrival = -1;
             queue.enqueue(material_clone);
             this._time_until_arrival = this._distribution_sample();

@@ -51,6 +51,7 @@ class App extends React.Component {
 				    	states={this.state.system._states}
 				    />
 				    <MyCharts
+				    	stats={this.state.system._stats}
 				    />
 				    <MyTimeline 
 				    	current_time={this.state.system._current_time}
