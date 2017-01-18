@@ -9,6 +9,7 @@ import MyElevator from './MyElevator';
 import MyQueue from './MyQueue';
 import MyMaterials from './MyMaterials';
 import MyAdvanceButton from './MyAdvanceButton';
+import MyCharts from './MyCharts';
 
 import QueuingSystem from '../../models/QueuingSystem';
 
@@ -48,6 +49,8 @@ class App extends React.Component {
 				    />
 				    <MyStatesTable 
 				    	states={this.state.system._states}
+				    />
+				    <MyCharts
 				    />
 				    <MyTimeline 
 				    	current_time={this.state.system._current_time}

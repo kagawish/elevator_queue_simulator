@@ -21,7 +21,6 @@ class Elevator {
 				if (!this.load_material(current_material)){
 					not_suitable_elements.push(current_material);
 				}
-
 			}
 			if (not_suitable_elements.length > 0)
 				queue.prepend(not_suitable_elements);

@@ -53,12 +53,21 @@ class QueuingSystem {
 
 	capture_system_state() {
 		var current_state = {
-			elevator: this._elevator.capture_state(),
-			queue: this._queue.capture_state(),
-			materials: this._materials
-		};
+            elevator: JSON.stringify({
+            	current_weight: this._elevator._current_weight,
+            	current_position: this._elevator._current_position
+            }),
+            queue: JSON.stringify(this._queue),
+            materials: JSON.stringify(this._materials)
+        };
+        this._states.push(current_state);
+	}
 
-		this._states[this._current_time] = current_state;
+	advance_components_states() {
+		this._materials.forEach((item) => {item.generate_material(this._queue)});
+		this._elevator.load_max_possible_weight(this._queue);
+		this._elevator.move();
+		this._elevator.unload();
 	}
 	
 	advance_timeline(n) {
@@ -67,10 +76,9 @@ class QueuingSystem {
 				alert('Time ended.');
 				return;
 			}
-			this._materials.forEach((item) => {item.generate_material(this._queue)});
-			this._elevator.load_max_possible_weight(this._queue);
-			this._elevator.move();
-			this._elevator.unload();
+
+			this.advance_components_states();
+
 			this._current_time++;
 
 			this.calculate_stats();

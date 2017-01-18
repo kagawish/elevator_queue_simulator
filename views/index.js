@@ -19,7 +19,7 @@ var myMaterialC = new Material('MyMaterialC', 50, 'probabilistic', [2, 3], [0.33
 
 var myQueue = new Queue('MyQueue');
 
-myElevatorQueuingSystem._end_time = 10;
+myElevatorQueuingSystem._end_time = 100;
 
 myElevatorQueuingSystem.assign_elevator(myElevator);
 
@@ -30,6 +30,8 @@ myElevatorQueuingSystem.assign_material(myMaterialC);
 myElevatorQueuingSystem.link_queue(myQueue);
 
 myElevator.link_system(myElevatorQueuingSystem);
+
+myElevatorQueuingSystem.advance_timeline(100);
 
 ReactDOM.render(
   <App system={myElevatorQueuingSystem}/>,

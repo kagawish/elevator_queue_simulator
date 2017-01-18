@@ -1,10 +1,7 @@
 Elevator Simulation Project Todos:
  ✔ Interface Part 1: Simple Interface with State table. @ui @critical @today @started(17-01-13 07:05) @done (17-01-13 10:02) @lasted(2:57)
+ ✔ Get the program interface up to speed with the other program. @done (17-01-18 06:00)
  ☐ Do the tracing state part of the program. @logic @critical @today @started(17-01-13 10:03)
  ☐ Fix time calculation issue. @logic @critical @today @started(17-01-13 05:54) @toggle(17-01-13 07:05)
  ☐ Fully functional program (With testing and tracing). @logic @critical @today
  ✔ Working ReactJS. @ui @high @today @done (17-01-13 10:02)
- ☐ Interface Part 2: Timeline advancer slider. @high @today
- ☐ Interface Part 3: More complex interface with each object and its state. @high @today
- ☐ Interface Part 4: Each Object's state can be changed manually before the simulation. @high @today
- ☐ Interface Part 5: Graphs Visualizing the advancement. @high @today
