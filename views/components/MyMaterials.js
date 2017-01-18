@@ -1,5 +1,5 @@
 /**
- * The component that was supposed to reperesent 
+ * The component that reperesents 
  * the materials list on the interface.
  * It is based on Material UI and ReactJS.
  */

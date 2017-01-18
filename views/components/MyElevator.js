@@ -1,6 +1,6 @@
 /**
- * The component that was supposed to reperesent the elevator
- * on the interface.
+ * The component that reperesents 
+ * the elevator on the interface.
  * It is based on Material UI and ReactJS.
  */
 import React from 'react';
