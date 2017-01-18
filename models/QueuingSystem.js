@@ -1,3 +1,11 @@
+/**
+ * This represents the main Class, or the Containing class,
+ * This class represents the System Component which
+ * would contain all the different other
+ * components and may help their
+ * interaction.
+ * It also contains the statistics about the system as a whole.
+ */
 class QueuingSystem {
 	constructor(name) {
 		this._name = name;
@@ -19,14 +27,23 @@ class QueuingSystem {
 		this._states = [];
 	}
 
+	/**
+	 * Decide the experiment is going to end after how many cycles.
+	 */
 	assign_end_time(time) {
 		this._end_time = time;
 	}
 
+	/**
+	 * Links a certain Elevator Component to this system.
+	 */
 	assign_elevator(elevator) {
 		this._elevator = elevator;
 	}
 
+	/**
+	 * Links a certain Material Component to this system.
+	 */
 	assign_material(material) {
 		this._materials.push(material);
 		this._stats._materials_delivered[material._name] = 0;
@@ -34,20 +51,37 @@ class QueuingSystem {
 		this._stats._materials_average_wait_time[material._name] = 0;
 	}
 
+	/**
+	 * Links a certain Queue Component to this system.
+	 */
 	link_queue(queue) {
 		this._queue = queue;
 	}
 
+	/**
+	 * Defines the behavior in which we unload materials from our 
+	 * elevator and gets statistics about the materials
+	 * that arrived.
+	 */
 	deliver_material(material) {
 		this._stats._materials_delivered[material._name]++;
 		this._elevator._current_weight -= material._weight;
 	}
 
+	/**
+	 * Defines the behavior in which a material is blocked 
+	 * (there's no room on the elevator for its weight)
+	 * and gets statistics about that material.
+	 */
 	postpone_material(material) {
 		this._stats._materials_postponed[material._name]++;
 		this._total_wait_time++;
 	}
 
+	/**
+	 * Iteratively, in each cycle, recalculates the different,
+	 * stats that we are searching for in our system.
+	 */
 	calculate_stats() {
 		for(let i = 0; i < this._materials.length; i++) {
 			if (this._current_time !== 0) {
@@ -58,6 +92,12 @@ class QueuingSystem {
 		}
 	}
 
+	/**
+	 * Produces a State Object, that can be used later on in the states
+	 * array and can over all help us identify the different
+	 * states the system was in for each cycle
+	 * when it was working.
+	 */
 	capture_system_state() {
 		var current_state = {
             elevator: JSON.stringify({
@@ -70,6 +110,15 @@ class QueuingSystem {
         this._states.push(current_state);
 	}
 
+	/**
+	 * Main Actions needed to be taken each cycle, namely:
+	 * 1- Check if we have to generate a certain material type or
+	 *    it is already on its way to being generated (For all material type).
+	 * 2- Loads the maximum possible weight on the elevator from the queue.
+	 * 3- If the elevator is able to move, we move it.
+	 * 4- Finally, if the elevator is in the position to unload the materials
+	 *    it contains, we unload them.
+	 */
 	advance_components_states() {
 		this._materials.forEach((item) => {item.generate_material(this._queue)});
 		this._elevator.load_max_possible_weight(this._queue);
@@ -77,6 +126,11 @@ class QueuingSystem {
 		this._elevator.unload();
 	}
 	
+	/**
+	 * Simulates advancing the time by n cycles, and for each cycle, if we didn't
+	 * bypass the end time, we take needed actions for the components, advance current
+	 * time, calculate stats for the system and take a snapshot of the current state.
+	 */
 	advance_timeline(n) {
 		for(let i = 0; i < n; i++) {
 			if (this._current_time === this._end_time) {

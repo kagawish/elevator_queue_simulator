@@ -5,5 +5,5 @@ Elevator Simulation Project Todos:
  ✔ Fix time calculation issue. @logic @critical @today @started(17-01-13 05:54) @toggle(17-01-13 07:05) @toggle(17-01-18 07:32) @done (17-01-18 08:15) @lasted(1:54)
  ✔ Working ReactJS. @ui @high @today @done (17-01-13 10:02)
  ✔ Graph Drawing. @ui @done (17-01-18 08:15)
- ☐ Multiple Iterations @started(17-01-18 08:47)
+ ✔ Multiple Iterations @started(17-01-18 08:47) @done (17-01-18 23:46) @lasted(14:59)
  ☐ Fix UI @started(17-01-18 08:47)
